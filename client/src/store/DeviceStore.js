@@ -8,10 +8,20 @@ export default class DeviceStore {
         id: 2,
         name: "Смартфоны",
       },
+      {
+        id: 3,
+        name: "Ноутбуки",
+      },
+      {
+        id: 4,
+        name: "Телевизоры",
+      },
     ];
     this._brands = [
       { id: 1, name: "samsung" },
       { id: 2, name: "apple" },
+      { id: 3, name: "Lenovo" },
+      { id: 4, name: "Asus" },
     ];
     this._devices = [
       {
@@ -42,7 +52,23 @@ export default class DeviceStore {
         rating: 5,
         img: "https://www.ixbt.com/img/n1/news/2020/10/6/350b65ba5ec345d5a37605326f517716_large.jpg",
       },
+      {
+        id: 5,
+        name: "Iphone 13",
+        price: 25000,
+        rating: 5,
+        img: "https://www.ixbt.com/img/n1/news/2020/10/6/350b65ba5ec345d5a37605326f517716_large.jpg",
+      },
+      {
+        id: 6,
+        name: "Iphone 13",
+        price: 25000,
+        rating: 5,
+        img: "https://www.ixbt.com/img/n1/news/2020/10/6/350b65ba5ec345d5a37605326f517716_large.jpg",
+      },
     ];
+    this._selectedType = {};
+    this._selectedBrand = {};
     makeAutoObservable(this);
   }
   setTypes(types) {
@@ -57,6 +83,14 @@ export default class DeviceStore {
     this._devices = devices;
   }
 
+  setSelectedType(type) {
+    this._selectedType = type;
+  }
+
+  setSelectedBrand(brand) {
+    this._selectedBrand = brand;
+  }
+
   get types() {
     return this._types;
   }
@@ -64,6 +98,14 @@ export default class DeviceStore {
     return this._brands;
   }
   get devices() {
-    return this.devices;
+    return this._devices;
+  }
+
+  get selectedType() {
+    return this._selectedType;
+  }
+
+  get selectedBrand() {
+    return this._selectedBrand;
   }
 }
